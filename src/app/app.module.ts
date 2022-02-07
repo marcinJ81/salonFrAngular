@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { FormsModule } from '@angular/forms';
+import { ClientServices } from './service/client.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,FormsModule
   ],
-  providers: [],
+  providers: [ClientServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientModel } from 'src/app/Model/Client.model';
 
 @Component({
   selector: 'app-client-list',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-list.component.css']
 })
 export class ClientListComponent implements OnInit {
-
+  client:  ClientModel[];
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
