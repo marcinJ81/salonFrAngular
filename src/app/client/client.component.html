@@ -1,1 +1,51 @@
-<p>client works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <label >Podaj imię</label> 
+        </div>
+        <div class="col-md-2">
+            <label >Podaj nazwisko</label> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="name-input" #clNameInpu >
+        </div>
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="sname-input" #clSNameInput>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+           <label > Podaj nr tel</label> 
+        </div>
+        <div class="col-md-2">
+           <label> Opis</label> 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="telNr-input" #clPhoneInput>
+        </div>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="desc-input" #clDescInput>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-1">
+          <button class="btn btn-success" type="submit">Dodaj</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-primary">Edytuj</button>
+        </div>
+        <div class="col-md-1">
+            <button class="btn btn-danger">Usuń</button>
+        </div>
+    </div>
+</div>
+<hr>
+<app-client-list></app-client-list>
+
+

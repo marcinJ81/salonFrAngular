@@ -10,6 +10,7 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { EmployeeComponent } from './employee/employee.component';
 import { ReservationListComponent } from './reservation/reservation-list/reservation-list.component';
 import { ReservationComponent } from './reservation/reservation.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { ReservationComponent } from './reservation/reservation.component';
     EmployeeListComponent,
     EmployeeComponent,
     ReservationListComponent,
-    ReservationComponent
+    ReservationComponent,
+    
   ],
   imports: [
-    BrowserModule
+    BrowserModule,FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
