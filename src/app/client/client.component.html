@@ -9,7 +9,7 @@
     </div>
     <div class="row">
         <div class="col-md-2">
-            <input type="text" class="form-control" id="name-input" #clNameInpu >
+            <input type="text" class="form-control" id="name-input" #clNameInput >
         </div>
         <div class="col-md-2">
             <input type="text" class="form-control" id="sname-input" #clSNameInput>
@@ -35,7 +35,7 @@
     <hr>
     <div class="row">
         <div class="col-md-1">
-          <button class="btn btn-success" type="submit">Dodaj</button>
+          <button class="btn btn-success" type="submit"(click)="NewClient()">Dodaj</button>
         </div>
         <div class="col-md-1">
             <button class="btn btn-primary">Edytuj</button>
