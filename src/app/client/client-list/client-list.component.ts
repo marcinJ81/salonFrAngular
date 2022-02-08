@@ -15,6 +15,12 @@ export class ClientListComponent implements OnInit {
 
     console.log('client-list: ' );
     this.clients = this.clientServices.clientRow;
+
+   /* this.clientServices.newClient.subscribe(
+      (clients: ClientModel[]) => {
+        this.clients = clients;
+      }
+    );*/
     
   }
 

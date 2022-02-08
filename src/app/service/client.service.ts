@@ -1,24 +1,34 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter,Injectable } from '@angular/core';
 import { ClientModel } from '../Model/Client.model';
+import { CounterServices } from './counter.services';
 
+@Injectable()
 export class ClientServices{
     
-    public clientRow: ClientModel[];
+  /*  public clientRow: ClientModel[] =[
+        new ClientModel(1,'test imie','test nazwiskso','tel','opis')
+    ];*/
+    public clientRow: ClientModel[] = [];
     newClient = new EventEmitter<ClientModel>();
 
-    
-    constructor(){
-        this.clientRow = [new ClientModel(2,'test imie','test nazwiskso','tel','opis')]
-    }
+    constructor(private counterServices: CounterServices){}
 
     addNewClient(client: ClientModel){
-        console.log('addnewcliwnt ' + client.cl_id);
+
         this.clientRow.push(client);
+        console.log('addnewclient ' + client.cl_id);
         this.newClient.emit(client);
     }
 
-    getAllClients(){
+  /*  getAllClients(){
         return this.clientRow.slice();
+    }*/
+    
+
+    deleteLAstClient(id: number ){
+        console.log('delete ' + id);
+        this.clientRow.splice(id,1);
+        
     }
 
 }

@@ -6,13 +6,15 @@
             <th>Nazwisko</th>
             <th>Nr tel.</th>
             <th>Opis</th>
+            <th></th>
         </tr>
         
         <tr *ngFor="let client of clients">
             <td>{{client.cl_id}}</td>
             <td>{{client.cl_name}}</td>
-            <td></td>
-            <td></td>
+            <td>{{client.cl_surname}}</td>
+            <td>{{client.cl_phone}}</td>
+            <td>{{client.cl_desc}}</td>
             <td></td>
         </tr>
     </table>
