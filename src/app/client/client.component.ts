@@ -55,8 +55,6 @@ export class ClientComponent implements OnInit {
       console.log('delete id= ' + this.clId);
     }
 
-      
-
   }
 
 

@@ -14,6 +14,11 @@ export class EmployeeService{
        
     }
 
+    getLastId(): number{
+        if(this.employeeRow.length === 0)
+            return 0;
+        return this.employeeRow[this.employeeRow.length-1].emp_id;
+    }
     
 
 }

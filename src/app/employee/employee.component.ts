@@ -8,11 +8,12 @@ import { CounterServices } from '../service/counter.services';
   selector: 'app-employee'
   ,templateUrl: './employee.component.html'
   ,styleUrls: ['./employee.component.css']
-  , providers: [CounterServices]
+  ,providers: [CounterServices]
 })
 export class EmployeeComponent implements OnInit {
   @ViewChild('empNameInput',{static:false}) empNameInput: ElementRef;
   @ViewChild('empPositionInput',{static:false}) empPositionInput: ElementRef;
+  employeeId: number;
 
   constructor(private employeeServ: EmployeeService,private counterService: CounterServices ) { }
 
@@ -20,7 +21,12 @@ export class EmployeeComponent implements OnInit {
   }
 
   NewEmployee(){
-    this.counterService.incrementId();
+
+    this.employeeId = this.employeeServ.getLastId();
+    if(this.employeeId === 0)    
+      this.counterService.incrementId();
+    this.counterService.setCountNumber(this.employeeId);
+
     let employee: EmployeeModel = new EmployeeModel(
       this.counterService.counter,
       this.empNameInput.nativeElement.value,
