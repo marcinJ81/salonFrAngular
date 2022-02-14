@@ -1,8 +1,7 @@
 import { EventEmitter,Injectable } from '@angular/core';
 import { EmployeeModel } from '../Model/Employee.model';
-import { CounterServices } from './counter.services';
 
-@Injectable();
+@Injectable()
 export class EmployeeService{
     public employeeRow: EmployeeModel[] = [];
     newEmployee = new EventEmitter<EmployeeModel>();
@@ -14,5 +13,7 @@ export class EmployeeService{
         this.newEmployee.emit(employee);
        
     }
+
+    
 
 }

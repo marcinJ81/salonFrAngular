@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { JobPositionModel } from '../Model/JobPosition.model';
 
 @Component({
   selector: 'app-employee',

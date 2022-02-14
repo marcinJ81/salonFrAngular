@@ -1,4 +1,4 @@
-export class JobPostionModel{
+export class JobPositionModel{
     public position_id: number;
     public position_title: string;
 
