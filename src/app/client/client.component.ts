@@ -14,11 +14,12 @@ export class ClientComponent implements OnInit {
   @ViewChild('clSNameInput',{static:false}) clSNameInputRef: ElementRef;
   @ViewChild('clPhoneInput',{static:false}) clPhoneInput: ElementRef;
   @ViewChild('clDescInput',{static:false}) clDescInput: ElementRef;
-  @ViewChild('clIdInput',{static:false}) clIdInput: ElementRef;
-
+ // @ViewChild('clIdInput',{static:false}) clIdInput: ElementRef;
+  clId: number;
   constructor(private clientServices: ClientServices,private counterService: CounterServices ) { }
 
   ngOnInit(): void {
+   // this.clId = this.clIdInput.nativeElement.value;
   }
 
   NewClient(){
@@ -33,11 +34,22 @@ export class ClientComponent implements OnInit {
 
   DeleteClient(){
       
+    if(this.clId === 0 )
+    {
       this.clientServices.deleteLAstClient(this.counterService.counter);
       console.log('delete id= ' + this.counterService.counter);
       this.counterService.decrementId();
+    }
+    else
+    {
+      this.clientServices.deleteLAstClient(this.clId);
+      console.log('delete id= ' + this.clId);
+    }
+
+      
 
   }
+
 
  
 }

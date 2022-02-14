@@ -27,8 +27,16 @@ export class ClientServices{
 
     deleteLAstClient(id: number ){
         console.log('delete ' + id);
+        let idRow: number;
+        let tmp = this.clientRow.map(a => a.cl_id === id);
+    
+        console.log(' clientRow length= ' + this.clientRow.length);
+        idRow = this.clientRow.find(x => x.cl_id === id).cl_id;
+         console.log('value from table= ' + idRow);   
         this.clientRow.splice(id,1);
         
     }
+
+    
 
 }

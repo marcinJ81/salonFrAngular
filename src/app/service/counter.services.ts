@@ -3,11 +3,18 @@ export class CounterServices{
 
     incrementId(){
         this.counter++;
-        console.log('counter = ' +this.counter);
+        console.log('counter += ' +this.counter);
     }
     decrementId(){
+        console.log('counter before -= ' +this.counter);
         if(this.counter > 0)
+        {
             this.counter--;
-        console.log('counter = ' +this.counter);
+        }
+
     }
+    setCountNumber(id: number){
+        this.counter = id;
+    }
+
 }
