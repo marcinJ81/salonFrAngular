@@ -1,3 +1,7 @@
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 
+<app-client *ngIf="loadedFeatures === 'client'"></app-client>
+<app-employee *ngIf="loadedFeatures === 'employee'" ></app-employee>
+<app-reservation *ngIf="loadedFeatures === 'reservation'"></app-reservation>
+<app-services *ngIf="loadedFeatures === 'services'"></app-services>
 
-<app-client></app-client>

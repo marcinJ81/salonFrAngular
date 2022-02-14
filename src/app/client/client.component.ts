@@ -1,12 +1,13 @@
-import { Component, OnInit, ViewChild,ElementRef,Input,EventEmitter,Output } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
 import { ClientModel } from '../Model/Client.model';
 import { ClientServices } from '../service/client.service';
-import { CounterServices } from 'src/app/service/counter.services';
+import { CounterServices } from '../service/counter.services';
 
 @Component({
-  selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  selector: 'app-client'
+  ,templateUrl: './client.component.html'
+  ,styleUrls: ['./client.component.css']
+  ,providers: [CounterServices]
 })
 export class ClientComponent implements OnInit {
 
@@ -23,7 +24,15 @@ export class ClientComponent implements OnInit {
   }
 
   NewClient(){
-    this.counterService.incrementId();
+
+    this.clId = this.clientServices.getLastId();
+   // console.log('latest id =' + this.clId);
+    if(this.clId === 0)
+      this.counterService.incrementId();
+    
+    this.counterService.setCountNumber(this.clId);
+    //console.log('set to old id =' + this.clientServices.getLastId());
+
     const newName: string = this.clNameInputRef.nativeElement.value;
     const newSName: string = this.clSNameInputRef.nativeElement.value;
     const newPhone: string = this.clPhoneInput.nativeElement.value;

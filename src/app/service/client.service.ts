@@ -20,6 +20,12 @@ export class ClientServices{
         this.newClient.emit(client);
     }
 
+    getLastId(): number{
+        if(this.clientRow.length === 0)
+            return 0;
+        return this.clientRow[this.clientRow.length-1].cl_id;
+    }
+
   /*  getAllClients(){
         return this.clientRow.slice();
     }*/

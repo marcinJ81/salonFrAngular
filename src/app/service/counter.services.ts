@@ -1,3 +1,8 @@
+import { Injectable } from "@angular/core";
+
+@Injectable({
+    providedIn: 'root'
+  })
 export class CounterServices{
     counter: number = 0;
 
@@ -15,6 +20,12 @@ export class CounterServices{
     }
     setCountNumber(id: number){
         this.counter = id;
+        console.log('old counter value = ' + id);
+        this.counter++;
+    }
+
+    getNumber(){
+        return this.counter;
     }
 
 }

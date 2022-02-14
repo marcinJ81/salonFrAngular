@@ -15,6 +15,7 @@ import { ServicesComponent } from './services/services.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { HeaderComponent } from './Header/header.component';
 //end
 
 @NgModule({
@@ -25,14 +26,15 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
     ReservationComponent,
     EmployeeComponent,
     ServicesComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,FormsModule
   ],
   providers: [
               ClientServices,
-              CounterServices,
+              //CounterServices,
               EmployeeService
               ],
   bootstrap: [AppComponent]
