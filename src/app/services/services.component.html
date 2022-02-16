@@ -1,1 +1,29 @@
-<p>services works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">Nazwa usługi</div>
+        <div class="col-md-1">Cena usługi</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" class="form-control" id="name-input" #clNameInput >
+        </div>
+        <div class="col-md-1">
+            <input type="text" class="form-control" id="price-input" #clPriceInput >
+        </div>
+    </div>
+    <br>
+    <div class="row">
+
+    </div>
+    <div class="row">
+        <div class="col-md-1">
+            <button class="btn btn-success" type="submit"(click)="NewService()">Dodaj</button>
+        </div>
+         <div class="col-md-1">
+              <button class="btn btn-primary">Edytuj</button>
+          </div>
+          <div class="col-md-1">
+              <button class="btn btn-danger" >Usuń </button>
+          </div>
+    </div>
+</div>
