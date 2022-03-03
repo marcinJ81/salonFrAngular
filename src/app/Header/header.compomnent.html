@@ -6,10 +6,28 @@
   
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a routerLink="/client" (click)="onSelect('client')" class="btn btn-primary">Klienci</a></li>
-          <li><a [routerLink]="['/employee']" (click)="onSelect('employee')" class="btn btn-dark">Pracownicy</a></li>
-          <li><a routerLink="/services" (click)="onSelect('services')"class="btn btn-primary">Usługi</a></li>
-          <li><a routerLink="/reservation" (click)="onSelect('reservation')" class="btn btn-dark">Reserwacje</a></li>
+          <li>
+            <a routerLink="/client" 
+            (click)="onSelect('client')"
+             class="btn btn-primary"> Klienci</a>
+          </li>
+          <li>
+            <a [routerLink]="['/employee']"
+             (click)="onSelect('employee')"
+              class="btn btn-dark">Pracownicy</a>
+          </li>
+          <li routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+          >
+            <a routerLink="/services" 
+            (click)="onSelect('services')"
+            class="btn btn-primary">Usługi</a>
+          </li>
+          <li>
+            <a routerLink="/reservation"
+             (click)="onSelect('reservation')"
+              class="btn btn-dark">Reserwacje</a>
+          </li>
         </ul>
       </div>
     </div>
