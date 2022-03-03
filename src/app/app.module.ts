@@ -16,6 +16,7 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { HeaderComponent } from './Header/header.component';
+import { JobPositionComponent } from './employee/job-position/job-position.component';
 //end
 
 const appRoutes: Routes = [
@@ -35,11 +36,14 @@ const appRoutes: Routes = [
     EmployeeComponent,
     ServicesComponent,
     EmployeeListComponent,
-    HeaderComponent//,
-   // RouterModule.forRoot(appRoutes)
+    HeaderComponent,
+    JobPositionComponent
+    
   ],
   imports: [
-    BrowserModule,FormsModule
+    BrowserModule,
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
               ClientServices,

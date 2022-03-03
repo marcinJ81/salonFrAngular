@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef, Input } from '@angular/core';
 import { ClientModel } from '../Model/Client.model';
 import { ClientServices } from '../service/client.service';
 import { CounterServices } from '../service/counter.services';
@@ -17,10 +17,12 @@ export class ClientComponent implements OnInit {
   @ViewChild('clDescInput',{static:false}) clDescInput: ElementRef;
  // @ViewChild('clIdInput',{static:false}) clIdInput: ElementRef;
   clId: number;
+  FormTittle: string = "";
   constructor(private clientServices: ClientServices,private counterService: CounterServices ) { }
 
   ngOnInit(): void {
    // this.clId = this.clIdInput.nativeElement.value;
+    this.FormTittle = ClientComponent.name;
   }
 
   NewClient(){
