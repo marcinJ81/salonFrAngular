@@ -1,4 +1,33 @@
 <p>Job-position</p>
-<div class="">
+<div class="container">
+    <div class="row">
+        <div class="col-2">
+            Nazwa
+        </div>
+        
+        <div class="col-1">
 
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <input type="text" class="form-control" id="jobNameInput" #jobNameInput >
+        </div>
+        
+        <div class="col-1">
+            <button class="btn btn-success" type="submit"(click)="NewJobPosition()">Dodaj</button>
+        </div>
+    </div>
+    <hr>
+    <table class="table table-stripped">
+        <tr>
+            <th>Id</th>
+            <th>Stanowisko</th>
+        </tr>
+
+        <tr *ngFor="let row of jobPositionList">
+            <td>{{row.position_id}}</td>
+            <td>{{row.position_title}}</td>
+        </tr>
+    </table>
 </div>

@@ -16,14 +16,16 @@ import { ReservationComponent } from './reservation/reservation.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { HeaderComponent } from './Header/header.component';
-import { JobPositionComponent } from './employee/job-position/job-position.component';
+import { JobPositionComponent } from './job-position/job-position.component';
+import { JobPositionService } from './service/jobPosition.service';
 //end
 
 const appRoutes: Routes = [
   {path: 'employee', component: EmployeeComponent},
   {path: 'reservation', component: ReservationComponent},
   {path: 'services', component: ServicesComponent},
-  {path: 'client', component: ClientComponent}
+  {path: 'client', component: ClientComponent},
+  {path: 'JobPosition', component: JobPositionComponent}
 ];
 
 
@@ -38,7 +40,6 @@ const appRoutes: Routes = [
     EmployeeListComponent,
     HeaderComponent,
     JobPositionComponent
-    
   ],
   imports: [
     BrowserModule,
@@ -48,7 +49,8 @@ const appRoutes: Routes = [
   providers: [
               ClientServices,
               //CounterServices,
-              EmployeeService
+              EmployeeService,
+              JobPositionService
               ],
   bootstrap: [AppComponent]
 })

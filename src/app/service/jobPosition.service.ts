@@ -6,7 +6,7 @@ export class JobPositionService{
     public jobRow: JobPositionModel[] = [];
     newJob = new EventEmitter<JobPositionModel>();
 
-    constructor(private jobService: JobPositionService) {}
+    constructor() {}
 
     addNewJobPosition(jobPosition: JobPositionModel){
 
