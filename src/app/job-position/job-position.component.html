@@ -24,10 +24,11 @@
             <th>Id</th>
             <th>Stanowisko</th>
         </tr>
-
+        <ng-content></ng-content>
         <tr *ngFor="let row of jobPositionList">
             <td>{{row.position_id}}</td>
             <td>{{row.position_title}}</td>
         </tr>
     </table>
 </div>
+

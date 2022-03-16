@@ -1,4 +1,4 @@
-import { Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild ,AfterContentInit} from '@angular/core';
 import { JobPositionModel } from '../Model/JobPosition.model';
 import { CounterServices } from '../service/counter.services';
 import { JobPositionService } from '../service/jobPosition.service';
@@ -9,7 +9,7 @@ import { JobPositionService } from '../service/jobPosition.service';
   styleUrls: ['./job-position.component.css'],
   providers: [JobPositionService]
 })
-export class JobPositionComponent implements OnInit, OnChanges, DoCheck {
+export class JobPositionComponent implements OnInit, OnChanges, DoCheck,AfterContentInit {
   @ViewChild('jobNameInput',{static:false}) jobNameInput: ElementRef;
   jobPositionList: JobPositionModel[] = []; 
   jobPositionId: number = 0;
@@ -33,6 +33,12 @@ export class JobPositionComponent implements OnInit, OnChanges, DoCheck {
     console.log("docheck");
     this.jobPositionList = this.getAllObject();
   }
+
+  ngAfterContentInit(){
+    console.log("ngContentAfterInit");
+    console.log("one");
+  }
+
 
   NewJobPosition(): void{
       this.jobPositionId = this.jobPosition.getLastId();
