@@ -10,7 +10,7 @@ import { ClientComponent } from './client/client.component';
 
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/employee'},
+    {path: '', redirectTo: '/employee', pathMatch: 'full'},
     {path: 'employee', component: EmployeeComponent},
     {path: 'reservation', component: ReservationComponent},
     {path: 'services', component: ServicesComponent},

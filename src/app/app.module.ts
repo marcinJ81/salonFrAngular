@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { Routes,RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ClientListComponent } from './client/client-list/client-list.component';
 import { ClientComponent } from './client/client.component';
@@ -18,15 +17,10 @@ import { EmployeeListComponent } from './employee/employee-list/employee-list.co
 import { HeaderComponent } from './Header/header.component';
 import { JobPositionComponent } from './job-position/job-position.component';
 import { JobPositionService } from './service/jobPosition.service';
+import { AppRoutingModule } from './app-routing.module';
 //end
 
-const appRoutes: Routes = [
-  {path: 'employee', component: EmployeeComponent},
-  {path: 'reservation', component: ReservationComponent},
-  {path: 'services', component: ServicesComponent},
-  {path: 'client', component: ClientComponent},
-  {path: 'JobPosition', component: JobPositionComponent}
-];
+
 
 
 @NgModule({
@@ -44,7 +38,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
               ClientServices,
