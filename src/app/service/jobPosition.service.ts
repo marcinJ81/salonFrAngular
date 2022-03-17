@@ -29,4 +29,9 @@ export class JobPositionService{
             return 0;
         return this.jobRow[this.jobRow.length-1].position_id;
     }
+
+    getJobPosition(index: number): string{
+        return this.jobRow[index].position_title;
+    }
+    
 }

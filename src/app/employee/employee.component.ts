@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef ,DoCheck} from '@angular/core';
 import { EmployeeModel } from '../Model/Employee.model';
 import { JobPositionModel } from '../Model/JobPosition.model';
 import { EmployeeService } from '../service/employee.service';
 import { CounterServices } from '../service/counter.services';
+import { JobPositionService } from '../service/jobPosition.service';
 
 @Component({
   selector: 'app-employee'
@@ -10,14 +11,26 @@ import { CounterServices } from '../service/counter.services';
   ,styleUrls: ['./employee.component.css']
   ,providers: [CounterServices]
 })
-export class EmployeeComponent implements OnInit {
+export class EmployeeComponent implements OnInit,DoCheck {
   @ViewChild('empNameInput',{static:false}) empNameInput: ElementRef;
   @ViewChild('empPositionInput',{static:false}) empPositionInput: ElementRef;
+  empHiredInput: boolean = false;
   employeeId: number;
+  jobPositionList: JobPositionModel[] = [];
 
-  constructor(private employeeServ: EmployeeService,private counterService: CounterServices ) { }
+  constructor(
+    private employeeServ: EmployeeService,
+    private counterService: CounterServices, 
+    private jobService: JobPositionService) { }
+
+  ngDoCheck(){
+   // this.jobPositionList = this.jobService.getAllJobPosition();
+   // console.log("ngDoCheck " + this.jobPositionList.length);
+  }
 
   ngOnInit(): void {
+    this.jobPositionList = this.jobService.getAllJobPosition();
+    console.log("ngOnInit ");
   }
 
   NewEmployee(){
@@ -26,12 +39,13 @@ export class EmployeeComponent implements OnInit {
     if(this.employeeId === 0)    
       this.counterService.incrementId();
     this.counterService.setCountNumber(this.employeeId);
+    console.log("new employee: " + this.empHiredInput);
 
     let employee: EmployeeModel = new EmployeeModel(
       this.counterService.counter,
       this.empNameInput.nativeElement.value,
-      new JobPositionModel(1,"pracownik"),
-      true
+      this.jobPositionList[0],
+      this.empHiredInput
       );
     this.employeeServ.addNewEmployee(employee);
   }

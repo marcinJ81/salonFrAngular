@@ -18,7 +18,28 @@
             <input type="text" class="form-control" id="name-input" #empNameInput >
         </div>
         <div class="col-md-2">
-            <input type="text" class="form-control" id="sname-input" #empPositionInput>
+            <div class="dropdown">
+               <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                    Dropdown button
+                  </button>
+                <ul class="dropdown-menu" *ngFor="let job of jobPositionList">
+                    <li><a class="dropdown-item" href="#" >{{job.position_title}}}</a></li>
+                </ul>-->
+                <ul class="list-group" *ngFor="let job of jobPositionList">
+                    <li class="list-group-item">{{job.position_title}}</li>
+                </ul>
+            </div>
+           <!--<input type="text" class="form-control" id="sname-input" #empPositionInput>--> 
+           
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-2" >
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" checked="true" id="flexCheckDefault" [(ngModel)]="empHiredInput" >
+                <label class="form-check-label" for="flexCheckDefault">
+                  Zatrudniony
+                </label>
+            </div>
         </div>
     </div>
     <br>
