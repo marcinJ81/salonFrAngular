@@ -30,8 +30,9 @@ export class JobPositionService{
         return this.jobRow[this.jobRow.length-1].position_id;
     }
 
-    getJobPosition(index: number): string{
-        return this.jobRow[index].position_title;
+    getJobPosition(index: number): JobPositionModel{
+        return this.jobRow.slice().find(x => x.position_id === index);
     }
+
     
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild,ElementRef ,DoCheck} from '@angular/core';
+import { Component, OnInit, ViewChild,ElementRef ,DoCheck, Input, Output,EventEmitter} from '@angular/core';
 import { EmployeeModel } from '../Model/Employee.model';
 import { JobPositionModel } from '../Model/JobPosition.model';
 import { EmployeeService } from '../service/employee.service';
@@ -11,22 +11,21 @@ import { JobPositionService } from '../service/jobPosition.service';
   ,styleUrls: ['./employee.component.css']
   ,providers: [CounterServices]
 })
-export class EmployeeComponent implements OnInit,DoCheck {
+export class EmployeeComponent implements OnInit {
   @ViewChild('empNameInput',{static:false}) empNameInput: ElementRef;
   @ViewChild('empPositionInput',{static:false}) empPositionInput: ElementRef;
   empHiredInput: boolean = false;
   employeeId: number;
   jobPositionList: JobPositionModel[] = [];
+  jobPosition_id: number ;
+
 
   constructor(
     private employeeServ: EmployeeService,
     private counterService: CounterServices, 
     private jobService: JobPositionService) { }
 
-  ngDoCheck(){
-   // this.jobPositionList = this.jobService.getAllJobPosition();
-   // console.log("ngDoCheck " + this.jobPositionList.length);
-  }
+
 
   ngOnInit(): void {
     this.jobPositionList = this.jobService.getAllJobPosition();
@@ -39,15 +38,22 @@ export class EmployeeComponent implements OnInit,DoCheck {
     if(this.employeeId === 0)    
       this.counterService.incrementId();
     this.counterService.setCountNumber(this.employeeId);
-    console.log("new employee: " + this.empHiredInput);
+    
 
     let employee: EmployeeModel = new EmployeeModel(
       this.counterService.counter,
       this.empNameInput.nativeElement.value,
-      this.jobPositionList[0],
+     this.jobService.getJobPosition(this.jobPosition_id),
       this.empHiredInput
       );
     this.employeeServ.addNewEmployee(employee);
+  }
+
+  SelectedItem(jobPos_id : number){
+    console.log("jobPos_id  " + jobPos_id);
+   
+
+      this.jobPosition_id = jobPos_id;
   }
 
 }

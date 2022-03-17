@@ -42,7 +42,6 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [
               ClientServices,
-              //CounterServices,
               EmployeeService,
               JobPositionService
               ],
