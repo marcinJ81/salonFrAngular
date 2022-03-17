@@ -7,62 +7,55 @@ import { JobPositionService } from '../service/jobPosition.service';
   selector: 'app-job-position',
   templateUrl: './job-position.component.html',
   styleUrls: ['./job-position.component.css'],
-  providers: [JobPositionService]
+  providers: [CounterServices]
 })
-export class JobPositionComponent implements OnInit, OnChanges, DoCheck,AfterContentInit {
+export class JobPositionComponent implements OnInit,  DoCheck {
   @ViewChild('jobNameInput',{static:false}) jobNameInput: ElementRef;
   jobPositionList: JobPositionModel[] = []; 
   jobPositionId: number = 0;
 
   constructor(
-    private jobPosition: JobPositionService,
+    private jobPositionService: JobPositionService,
     private counter: CounterServices
     ) { }
 
   ngOnInit(): void {
-      this.jobPositionList = this.getAllObject();
-      }
+   
+    let jobPositionState: JobPositionModel[] = this.getAllObject();
+    console.log("init jobPositionState: " + jobPositionState.length);
+    this.jobPositionList = jobPositionState;
+    }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    console.log("onchanges");
-    /*this.jobPositionList = this.getAllObject();*/
-  }
   ngDoCheck(): void {
-    
     console.log("docheck");
     this.jobPositionList = this.getAllObject();
   }
 
-  ngAfterContentInit(){
-    console.log("ngContentAfterInit");
-    console.log("one");
-  }
-
-
   NewJobPosition(): void{
-      this.jobPositionId = this.jobPosition.getLastId();
+      this.jobPositionId = this.jobPositionService.getLastId();
       if(this.jobPositionId === 0)
         this.counter.incrementId();
       this.counter.setCountNumber(this.jobPositionId);
 
-      console.log('latest job Positionid =' + this.counter);
+     // console.log('latest job Positionid =' + this.counter);
 
       let jobPositionObject = new JobPositionModel(
         this.counter.counter,
         this.jobNameInput.nativeElement.value
       );
-      this.jobPosition.addNewJobPosition(jobPositionObject);
-      console.log('new job Positionid =' + jobPositionObject.position_id);
+      this.jobPositionService.addNewJobPosition(jobPositionObject);
+    //  console.log('new job Positionid =' + jobPositionObject.position_id);
       return;
     }
 
   getAllObject(): JobPositionModel[]{
     if(this.jobPositionList.length == 0)
     {
+      console.log("getAllObject: " + 0);
       return [new JobPositionModel(0,"brak")]; 
     }
-    return this.jobPositionList = this.jobPosition.getAllJobPosition();
+    console.log("getAllObject: " + this.jobPositionList.length);
+    return this.jobPositionList = this.jobPositionService.getAllJobPosition();
   }
 
 }
