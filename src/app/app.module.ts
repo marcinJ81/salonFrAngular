@@ -18,6 +18,7 @@ import { HeaderComponent } from './Header/header.component';
 import { JobPositionComponent } from './job-position/job-position.component';
 import { JobPositionService } from './service/jobPosition.service';
 import { AppRoutingModule } from './app-routing.module';
+import { EditComponent } from './employee/employee_edit/edit/edit.component';
 //end
 
 
@@ -33,7 +34,8 @@ import { AppRoutingModule } from './app-routing.module';
     ServicesComponent,
     EmployeeListComponent,
     HeaderComponent,
-    JobPositionComponent
+    JobPositionComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

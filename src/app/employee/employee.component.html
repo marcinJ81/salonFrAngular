@@ -1,4 +1,4 @@
-<div class="container">
+<div >
     <div class="row">
         <div class="col-md-1">
             <label >Id</label> 
@@ -10,30 +10,44 @@
             <label >Stanowisko</label> 
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-1">
-            <input type="number" class="form-control" id="clId-input"  [defaultValue]="0" > 
-        </div>
-        <div class="col-md-3">
-            <input type="text" class="form-control" id="name-input" #empNameInput >
-        </div>
-        <div class="col-md-3">
-            <div class="dropdown">
-                <select class="form-select"  [ngModel]="jobPosition_id" (ngModelChange)="SelectedItem($event)">
-                    <option *ngFor="let job of jobPositionList" [ngValue]="job.position_id">{{job.position_title}}</option>
-                </select>
+    <div  >
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-3">
+                        <button class="btn btn-success" type="submit">Edytuj</button> 
+                        <input type="number" class="form-control" id="clId-input"  [defaultValue]="0" > 
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id="name-input" #empNameInput >
+                    </div>
+                    <div class="col-md-3">
+                        <div class="dropdown">
+                            <select class="form-select"  [ngModel]="jobPosition_id" (ngModelChange)="SelectedItem($event)">
+                                <option *ngFor="let job of jobPositionList" [ngValue]="job.position_id">{{job.position_title}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-2" >
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" checked="true" id="flexCheckDefault" [(ngModel)]="empHiredInput" >
+                            <label class="form-check-label" for="flexCheckDefault">
+                              Zatrudniony
+                            </label>
+                        </div>
+                    </div>
+                </div>    
             </div>
         </div>
-        <div class="col-md-1"></div>
-        <div class="col-md-2" >
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" checked="true" id="flexCheckDefault" [(ngModel)]="empHiredInput" >
-                <label class="form-check-label" for="flexCheckDefault">
-                  Zatrudniony
-                </label>
+        <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <router-outlet></router-outlet>
             </div>
         </div>
     </div>
+    
     <br>
    
     <hr>

@@ -33,8 +33,7 @@ export class JobPositionService{
     getJobPosition(index: number): [JobPositionModel,  boolean]{
        if(!this.jobRow.some(x => x.position_id === index) )
             return [null, false];
-        return [this.jobRow.slice().find(x => x.position_id === index),true]
-        
+        return [this.jobRow.slice().find(x => x.position_id === index),true];   
     }
 
     

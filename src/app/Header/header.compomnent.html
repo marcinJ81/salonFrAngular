@@ -8,28 +8,23 @@
         <ul class="nav navbar-nav">
           <li routerLinkActive="active"
           [routerLinkActiveOptions]="{exact: true}">
-            <a routerLink="/client" 
-            (click)="onSelect('client')"
+            <a routerLink="/client"           
              class="btn btn-primary"> Klienci</a>
           </li>
           <li>
-            <a [routerLink]="['/employee']"
-             (click)="onSelect('employee')"
+            <a [routerLink]="['/employee']"           
               class="btn btn-dark">Pracownicy</a>
           </li>
           <li>
-            <a routerLink="/services" 
-            (click)="onSelect('services')"
+            <a routerLink="/services"        
             class="btn btn-primary">Usługi</a>
           </li>
           <li>
-            <a routerLink="/reservation"
-             (click)="onSelect('reservation')"
+            <a routerLink="/reservation"    
               class="btn btn-dark">Reserwacje</a>
           </li>
           <li>
-            <a routerLink="/JobPosition"
-             (click)="onSelect('jobPosition')"
+            <a routerLink="/JobPosition" 
               class="btn btn-dark">Stanowisko</a>
           </li>
         </ul>

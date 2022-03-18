@@ -6,12 +6,15 @@ import { EmployeeComponent } from './employee/employee.component';
 import { JobPositionComponent } from './job-position/job-position.component';
 import { ServicesComponent } from './services/services.component';
 import { ClientComponent } from './client/client.component';
+import { EditComponent } from "./employee/employee_edit/edit/edit.component";
 
 
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/employee', pathMatch: 'full'},
-    {path: 'employee', component: EmployeeComponent},
+    {path: 'employee', component: EmployeeComponent, children: [
+      {path: ':id', component: EditComponent}
+    ]},
     {path: 'reservation', component: ReservationComponent},
     {path: 'services', component: ServicesComponent},
     {path: 'client', component: ClientComponent},

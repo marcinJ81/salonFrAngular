@@ -19,6 +19,15 @@ export class EmployeeService{
             return 0;
         return this.employeeRow[this.employeeRow.length-1].emp_id;
     }
+
+    getEmployeeById(id: number) : EmployeeModel{
+
+        return this.employeeRow.slice().find(x => x.emp_id === id);
+    } 
+
+    getAllEmployee() : EmployeeModel[]{
+        return this.employeeRow;
+    }
     
 
 }
