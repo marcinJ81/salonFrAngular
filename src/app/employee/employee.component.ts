@@ -39,11 +39,15 @@ export class EmployeeComponent implements OnInit {
       this.counterService.incrementId();
     this.counterService.setCountNumber(this.employeeId);
     
-
+    if(!this.jobService.getJobPosition(this.jobPosition_id)[1])   
+    {
+      console.log("check jobposition " + this.jobService.getJobPosition(this.jobPosition_id)[1]);
+      return;
+    }
     let employee: EmployeeModel = new EmployeeModel(
       this.counterService.counter,
       this.empNameInput.nativeElement.value,
-     this.jobService.getJobPosition(this.jobPosition_id),
+      this.jobService.getJobPosition(this.jobPosition_id)[0],
       this.empHiredInput
       );
     this.employeeServ.addNewEmployee(employee);
@@ -51,8 +55,6 @@ export class EmployeeComponent implements OnInit {
 
   SelectedItem(jobPos_id : number){
     console.log("jobPos_id  " + jobPos_id);
-   
-
       this.jobPosition_id = jobPos_id;
   }
 

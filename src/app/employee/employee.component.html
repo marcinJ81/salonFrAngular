@@ -20,12 +20,9 @@
         <div class="col-md-3">
             <div class="dropdown">
                 <select class="form-select"  [ngModel]="jobPosition_id" (ngModelChange)="SelectedItem($event)">
-                    <option value="0">Wybierz</option>
                     <option *ngFor="let job of jobPositionList" [ngValue]="job.position_id">{{job.position_title}}</option>
                 </select>
             </div>
-           <!--<input type="text" class="form-control" id="sname-input" #empPositionInput>--> 
-           
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-2" >
