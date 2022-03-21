@@ -15,8 +15,8 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-3">
-                        <button class="btn btn-success" type="submit">Edytuj</button> 
-                        <input type="number" class="form-control" id="clId-input"  [defaultValue]="0" > 
+                        <button class="btn btn-success" type="submit" (click)="OnEditionEmployee()" >Edytuj</button> 
+                        <input type="number" class="form-control" id="clId-input"  #empIdInput > 
                     </div>
                     <div class="col-md-3">
                         <input type="text" class="form-control" id="name-input" #empNameInput >

@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { EmployeeModel } from 'src/app/Model/Employee.model';
 import { EmployeeService } from 'src/app/service/employee.service';
 
@@ -11,13 +11,19 @@ import { EmployeeService } from 'src/app/service/employee.service';
 export class EditComponent implements OnInit {
   @ViewChild('empNameInput',{static:false}) empNameInput: ElementRef;
   employee: EmployeeModel;
+  id: number;
 
   constructor(private route: ActivatedRoute, private empService: EmployeeService ) { }
 
   ngOnInit(): void {
-    let result = this.empService.getAllEmployee().some(x => x.emp_id ===this.route.snapshot.params['id'] );
-    console.log("ngOnInit " + result);
-    this.employee = this.empService.getEmployeeById(this.route.snapshot.params['id']);
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        this.employee = this.empService.getEmployeeById(this.id);
+      }
+    );
+
+    
   }
 
 }

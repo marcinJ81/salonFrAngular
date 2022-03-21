@@ -13,7 +13,8 @@ import { EditComponent } from "./employee/employee_edit/edit/edit.component";
 const appRoutes: Routes = [
     {path: '', redirectTo: '/employee', pathMatch: 'full'},
     {path: 'employee', component: EmployeeComponent, children: [
-      {path: ':id', component: EditComponent}
+     // {path: ':id', component: EditComponent},
+      {path: ':id/edit', component: EditComponent}
     ]},
     {path: 'reservation', component: ReservationComponent},
     {path: 'services', component: ServicesComponent},
