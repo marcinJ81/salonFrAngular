@@ -29,6 +29,12 @@ export class ClientServices{
   /*  getAllClients(){
         return this.clientRow.slice();
     }*/
+
+    GetClientById(id: number) : [ClientModel,boolean]{
+        if(!this.clientRow.some(x => x.cl_id === id))
+            return [null,false];
+        return [this.clientRow.slice().find(x => x.cl_id === id),true];
+    }
     
 
     deleteLAstClient(id: number ){

@@ -1,16 +1,25 @@
 <div class="row">
-    <div class="col-md-4">
-      
-    </div>
-    <div class="col-md-8">   
-        <p>Edycja pracownika</p>    
+    <div class="col-md-2">
+        <p>Edycja pracownika</p>   
     </div>
 </div>
 <div class="row">
-    <div class="col-md-4">  
-        <p > {{employee.emp_name}}</p>
+    <div class="col-md-1">  
+        <p>{{employee.emp_id}}</p>
       </div>
-    <div class="col-md-8">
+    <div class="col-md-3">
         <input type="text" class="form-control" id="name-input" value="{{employee.emp_name}}" #empNameInput>
+    </div>
+    <div class="col-md-3">
+        <input type="text" class="form-control" id="name-input" value="{{employee.jobPosition.position_title}}" #empPositionInput>
+    </div>
+    <div class="col-md-3">
+       <!-- <input type="text" class="form-control" id="name-input" value="{{employee.emp_hired}}" #empHiredInput> -->
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox"  checked="{{employee.emp_hired}}" id="flexCheckDefault" value="" >
+            <label class="form-check-label" for="flexCheckDefault">
+              Zatrudniony
+            </label>
+        </div>
     </div>
 </div>

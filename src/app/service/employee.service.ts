@@ -20,9 +20,12 @@ export class EmployeeService{
         return this.employeeRow[this.employeeRow.length-1].emp_id;
     }
 
-    getEmployeeById(id: number) : EmployeeModel{
-
-        return this.employeeRow.slice().find(x => x.emp_id === id);
+    getEmployeeById(id: number) : [EmployeeModel,boolean]{
+        if(this.employeeRow.length === 0)
+            return [null, false];
+        if(!this.employeeRow.some(x => x.emp_id === id))
+            return [null,false]
+        return [this.employeeRow.slice().find(x => x.emp_id === id),true];
     } 
 
     getAllEmployee() : EmployeeModel[]{

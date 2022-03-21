@@ -19,10 +19,9 @@ import { JobPositionComponent } from './job-position/job-position.component';
 import { JobPositionService } from './service/jobPosition.service';
 import { AppRoutingModule } from './app-routing.module';
 import { EditComponent } from './employee/employee_edit/edit/edit.component';
+import { EditclientComponent } from './client/editclient/editclient.component';
+
 //end
-
-
-
 
 @NgModule({
   declarations: [
@@ -35,7 +34,8 @@ import { EditComponent } from './employee/employee_edit/edit/edit.component';
     EmployeeListComponent,
     HeaderComponent,
     JobPositionComponent,
-    EditComponent
+    EditComponent,
+    EditclientComponent
   ],
   imports: [
     BrowserModule,

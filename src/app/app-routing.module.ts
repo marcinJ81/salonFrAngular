@@ -7,8 +7,7 @@ import { JobPositionComponent } from './job-position/job-position.component';
 import { ServicesComponent } from './services/services.component';
 import { ClientComponent } from './client/client.component';
 import { EditComponent } from "./employee/employee_edit/edit/edit.component";
-
-
+import { EditclientComponent } from "./client/editclient/editclient.component";
 
 const appRoutes: Routes = [
     {path: '', redirectTo: '/employee', pathMatch: 'full'},
@@ -18,7 +17,10 @@ const appRoutes: Routes = [
     ]},
     {path: 'reservation', component: ReservationComponent},
     {path: 'services', component: ServicesComponent},
-    {path: 'client', component: ClientComponent},
+    {path: 'client', component: ClientComponent, children: [
+      {path: ':id/edit', component : EditclientComponent}
+    ]},
+
     {path: 'JobPosition', component: JobPositionComponent}
   ];
 

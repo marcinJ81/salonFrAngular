@@ -19,11 +19,11 @@ export class EditComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        this.employee = this.empService.getEmployeeById(this.id);
+        if(this.empService.getEmployeeById(this.id)[1])
+          this.employee = this.empService.getEmployeeById(this.id)[0];
+        console.log("hired: " + this.employee.emp_hired);
       }
     );
-
-    
   }
 
 }
